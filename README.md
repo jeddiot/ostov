@@ -1,23 +1,41 @@
-# OpenGL Lagrangian Fluid
+# ostov
 
-## Overview
+**ostov** is a production-grade, reusable **Render Graph Middleware** for OpenGL 4.6+, geared towards Technical Artists and Engine Developers.
 
-This project is a learning project using OpenGL, focusing on building a working Lagrangian particle-based fluid flow rendering pipeline.
+*"Ostov"* (Russian: Остов) means *Skeleton* or *Frame*—the indestructible hull that remains when the walls are stripped away.
 
-## Key Files
+## Philosophy
 
-- `learnOpenGL/`
-    - `dependencies/`: Contains header files.
-    - `resources/`: Contains media, such as textures.
-    - `shaders/`: Contains shader programs.
-    - `src/`: Stores the main programs.
+Most "Game Engines" are bloated with physics, audio, and ECS. **Ostov** is different. It is a specialized **Graphics Abstraction Layer**.
 
-## Contributions
+It transforms spaghetti OpenGL calls (`glBindBuffer`, `glVertexAttribPointer`) into a structured, high-level **Render Graph**:
 
-- TBD
+```cpp
+auto& geometryPass = renderGraph.AddPass("Geometry");
+geometryPass.SetOutput(gBuffer);
+geometryPass.Execute = [&](Renderer& r) {
+    r.DrawMesh(mesh, material);
+};
+```
 
-## References
+## Key Features (Planning)
 
-- [LearnOpenGL.com](https://learnopengl.com/)  
-- [Physics-based fluid simulation in computer graphics: Survey, research trends, and challenges, Wang et al., Computational Visual Media, 2024.](https://link.springer.com/article/10.1007/s41095-023-0368-y)
-- [Game Engine Architecture 3rd ed, Gregory, 2019](https://www.gameenginebook.com/index.html)
+- **Render Graph Architecture:** Define complex frame pipelines (G-Buffer -> Shadow -> Lighting -> Bloom) as a dependency graph.
+- **Direct State Access (DSA):** Built strictly on OpenGL 4.6 DSA for cleaner, safer, faster state management.
+- **Hot-Reloading:** Shaders and Textures update instantly when files change on disk.
+- **Asset Integration:** One-line mesh/texture loading (glTF, OBJ, PNG, HDR).
+- **ImGui Built-in:** implicit debug inspectors for every internal object.
+
+## Structure
+
+- **ostov/**: The Static Library (Middleware).
+- **sandbox/**: A client application demonstrating how to build a renderer on top of Ostov.
+
+## Building
+
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
