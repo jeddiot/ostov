@@ -32,3 +32,6 @@ Thumbs.db
 
 # Ignore OpenGL requirement archives folder
 /openGL_requirement_archive/
+
+# Ignore local client/sandbox applications
+/sandbox/
