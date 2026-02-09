@@ -3,5 +3,5 @@ ostov/src/glad.c linguist-vendored
 ostov/include/glad/glad.h linguist-vendored
 ostov/include/KHR/khrplatform.h linguist-vendored
 
-# Mark sandbox as documentation/example to focus stats on the core library
-sandbox/** linguist-documentation
+# Mark examples as documentation/example to focus stats on the core library
+examples/** linguist-documentation

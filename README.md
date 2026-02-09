@@ -1,14 +1,12 @@
-# ostov
+# Ostov
 
-**ostov** is a production-grade, reusable **Render Graph Middleware** for OpenGL 4.6+, geared towards Technical Artists and Engine Developers.
+## What is Ostov
 
-*"Ostov"* (Russian: Остов) means *Skeleton* or *Frame*—the indestructible hull that remains when the walls are stripped away.
+Ostov is a production-grade, reusable render graph middleware for OpenGL 4.6+.
 
-## Philosophy
+## Why Ostov
 
-Most "Game Engines" are bloated with physics, audio, and ECS. **Ostov** is different. It is a specialized **Graphics Abstraction Layer**.
-
-It transforms spaghetti OpenGL calls (`glBindBuffer`, `glVertexAttribPointer`) into a structured, high-level **Render Graph**:
+Most Game Engines are bloated with physics, audio, and ECS. Ostov is here to save the day. It is a specialized graphics abstraction layer that transforms spaghetti OpenGL calls into a structured, high-level render graph:
 
 ```cpp
 auto& geometryPass = renderGraph.AddPass("Geometry");
@@ -18,7 +16,7 @@ geometryPass.Execute = [&](Renderer& r) {
 };
 ```
 
-## Key Features (Planning)
+## Key Features (Under development)
 
 - **Render Graph Architecture:** Define complex frame pipelines (G-Buffer -> Shadow -> Lighting -> Bloom) as a dependency graph.
 - **Direct State Access (DSA):** Built strictly on OpenGL 4.6 DSA for cleaner, safer, faster state management.
@@ -28,14 +26,12 @@ geometryPass.Execute = [&](Renderer& r) {
 
 ## Structure
 
-- **ostov/**: The Static Library (Middleware).
-- **sandbox/**: A client application demonstrating how to build a renderer on top of Ostov.
+- `ostov/`: The Static Library (Middleware).
+- `examples/`: A client application demonstrating how to build a renderer on top of Ostov.
 
-## Building
+## Build and Run
 
 ```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
+cmake -S . -B build ; cmake --build build
+# .\build\bin\examples_app.exe
 ```

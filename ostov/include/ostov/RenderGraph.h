@@ -1,18 +1,13 @@
 #pragma once
 
 #include "core.h"
+#include "Renderer.h"
 #include <string>
 #include <vector>
 #include <functional>
 #include <map>
 
 namespace Ostov {
-
-    // Simple placeholder for Renderer
-    class Renderer {
-    public:
-        void DrawMesh() { /* TODO */ }
-    };
 
     struct RenderPass {
         std::string Name;
