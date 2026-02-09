@@ -3,6 +3,9 @@
 // For use by Ostov applications
 #include <ostov/application.h>
 #include <ostov/core.h>
+#include <ostov/Renderer.h>
+#include <ostov/Mesh.h>
+#include <ostov/Shader.h>
 #include <ostov/RenderGraph.h>
 
 // Entry Point
