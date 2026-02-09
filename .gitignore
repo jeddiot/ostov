@@ -33,5 +33,6 @@ Thumbs.db
 # Ignore OpenGL requirement archives folder
 /openGL_requirement_archive/
 
-# Ignore local client/sandbox applications
-/sandbox/
+# Ignore local client/examples applications
+/examples/bin/
+/examples/build/
